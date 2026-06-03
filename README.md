@@ -158,7 +158,7 @@ streamlit run app.py
 
 The project is deployed using **Streamlit Community Cloud**, allowing users to interact with the model through a web-based interface.
 
-**Live Demo:** _Add Deployment Link Here_
+Live Demo: https://amazon-delivery-time-prediction-7mxnotm73hkh4xva5atbtf.streamlit.app/
 
 ---
 
