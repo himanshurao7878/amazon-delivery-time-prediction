@@ -1,0 +1,15 @@
+# Pinned versions matching the environment used to train and save
+# best_delivery_model.pkl. Install with:
+#   python -m pip install -r requirements.txt
+#
+# If you ever retrain the model, re-generate this file with:
+#   python -m pip freeze > requirements.txt
+# and keep it committed alongside best_delivery_model.pkl.
+
+streamlit
+pandas==2.3.3
+numpy==2.4.4
+matplotlib==3.11.1
+seaborn==0.13.2
+scikit-learn==1.8.0
+mlflow==3.15.1
