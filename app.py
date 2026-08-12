@@ -26,14 +26,14 @@ st.write("---")
 st.sidebar.header("ℹ️ Project Information")
 st.sidebar.markdown("""
 **Project:** Amazon Delivery Time Prediction  
-**Goal:** Predict delivery duration (in hours)  
+**Goal:** Predict delivery duration (in minutes)  
 **Tech Stack:** Python, Scikit-learn, MLflow, Streamlit  
-**Best Model:** Gradient Boosting Regressor ✅  
+**Best Model:** Random Forest Regressor ✅  
 
 **Performance (Test Set):**  
-- MAE ≈ 30.5  
-- RMSE ≈ 41.1  
-- R² ≈ 0.37  
+- MAE ≈ 17.3 
+- RMSE ≈ 22.5   
+- R² ≈ 0.81  
 """)
 
 # =============================
@@ -79,10 +79,10 @@ def create_feature_vector():
 
     # One-hot encoded categorical columns (aligning with training set)
     weather_cols = ['Weather_Cloudy', 'Weather_Fog', 'Weather_Sandstorms',
-                    'Weather_Stormy', 'Weather_Sunny', 'Weather_Windy']
-    traffic_cols = ['Traffic_Jam ', 'Traffic_Low ', 'Traffic_Medium ', 'Traffic_NaN ']
-    vehicle_cols = ['Vehicle_motorcycle ', 'Vehicle_scooter ', 'Vehicle_van']
-    area_cols = ['Area_Other', 'Area_Semi-Urban ', 'Area_Urban ']
+                'Weather_Stormy', 'Weather_Sunny', 'Weather_Windy']
+    traffic_cols = ['Traffic_Jam', 'Traffic_Low', 'Traffic_Medium']
+    vehicle_cols = ['Vehicle_motorcycle', 'Vehicle_scooter', 'Vehicle_van']
+    area_cols = ['Area_Other', 'Area_Semi-Urban', 'Area_Urban']
     category_cols = [
         'Category_Books', 'Category_Clothing', 'Category_Cosmetics', 'Category_Electronics',
         'Category_Grocery', 'Category_Home', 'Category_Jewelry', 'Category_Kitchen',
@@ -96,16 +96,10 @@ def create_feature_vector():
 
     # Activate the selected ones
     df[f"Weather_{weather}"] = 1
-    df[f"Traffic_{traffic} "] = 1
-    df[f"Vehicle_{vehicle} "] = 1
-    df[f"Area_{area} "] = 1
+    df[f"Traffic_{traffic}"] = 1
+    df[f"Vehicle_{vehicle}"] = 1
+    df[f"Area_{area}"] = 1
     df[f"Category_{category}"] = 1
-
-    # Add placeholders for columns not used directly
-    df["Drop_Latitude"] = 0.0
-    df["Drop_Longitude"] = 0.0
-    df["Store_Latitude"] = 0.0
-    df["Store_Longitude"] = 0.0
 
     # Ensure correct column order
     expected_columns = model.feature_names_in_
@@ -120,7 +114,7 @@ if st.button("🔮 Predict Delivery Time"):
     try:
         input_vector = create_feature_vector()
         prediction = model.predict(input_vector)[0]
-        st.success(f"⏱️ Estimated Delivery Time: **{prediction:.2f} hours**")
+        st.success(f"⏱️ Estimated Delivery Time: **{prediction:.2f} minutes**")
     except Exception as e:
         st.error(f"⚠️ Prediction failed: {e}")
 
