@@ -427,7 +427,7 @@ The Streamlit application is deployed on **Streamlit Community Cloud**.
 
 🔗 **Live Application:**
 
-https://amazon-delivery-time-prediction-7mxnotm73hkh4xva5atbtf.streamlit.app/
+[https://amazon-delivery-time-prediction-7mxnotm73hkh4xva5atbtf.streamlit.app/](https://amazon-delivery-time-prediction-pq6vndyswmxqmcbd2g92vh.streamlit.app/)
 
 ---
 
